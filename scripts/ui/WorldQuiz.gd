@@ -7,25 +7,25 @@ class_name WorldQuiz extends Control
 # Node references
 # ---------------------------------------------------------------------------
 
-@onready var _quiz_manager: QuizManager = $QuizManager
+@onready var _quiz_manager: QuizManager = %QuizManager
 
 # Question view
-@onready var _question_view: Control     = $QuestionView
-@onready var _counter_label: Label       = $QuestionView/Header/CounterLabel
-@onready var _question_label: RichTextLabel = $QuestionView/QuestionLabel
-@onready var _pseudocode_label: RichTextLabel = $QuestionView/PseudocodeLabel
-@onready var _options_container: VBoxContainer = $QuestionView/OptionsContainer
-@onready var _feedback_panel: PanelContainer   = $QuestionView/FeedbackPanel
-@onready var _feedback_icon: Label    = $QuestionView/FeedbackPanel/HBox/FeedbackIcon
-@onready var _feedback_label: Label   = $QuestionView/FeedbackPanel/HBox/FeedbackLabel
-@onready var _explanation_label: RichTextLabel = $QuestionView/FeedbackPanel/ExplanationLabel
-@onready var _next_question_button: Button     = $QuestionView/FeedbackPanel/NextButton
+@onready var _question_view: Control     = %QuestionView
+@onready var _counter_label: Label       = %CounterLabel
+@onready var _question_label: RichTextLabel = %QuestionLabel
+@onready var _pseudocode_label: RichTextLabel = %PseudocodeLabel
+@onready var _options_container: VBoxContainer = %OptionsContainer
+@onready var _feedback_panel: PanelContainer   = %FeedbackPanel
+@onready var _feedback_icon: Label    = %FeedbackIcon
+@onready var _feedback_label: Label   = %FeedbackLabel
+@onready var _explanation_label: RichTextLabel = %ExplanationLabel
+@onready var _next_question_button: Button     = %NextButton
 
 # Result view
-@onready var _result_view: Control  = $ResultView
-@onready var _score_label: Label    = $ResultView/VBox/ScoreLabel
-@onready var _continue_button: Button = $ResultView/VBox/ContinueButton
-@onready var _retry_button: Button    = $ResultView/VBox/RetryButton
+@onready var _result_view: Control  = %ResultView
+@onready var _score_label: Label    = %ScoreLabel
+@onready var _continue_button: Button = %ContinueButton
+@onready var _retry_button: Button    = %RetryButton
 
 # ---------------------------------------------------------------------------
 # Internal

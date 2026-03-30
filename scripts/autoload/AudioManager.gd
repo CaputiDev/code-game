@@ -35,19 +35,29 @@ const MUSIC_BANK: Dictionary = {
 }
 
 const SFX_BANK: Dictionary = {
-	"button_press":       "res://assets/audio/sfx/button_press.ogg",
-	"door_open":          "res://assets/audio/sfx/door_open.ogg",
-	"door_locked":        "res://assets/audio/sfx/door_locked.ogg",
-	"variable_change":    "res://assets/audio/sfx/variable_change.ogg",
-	"function_execute":   "res://assets/audio/sfx/function_execute.ogg",
-	"bug_eliminated":     "res://assets/audio/sfx/bug_eliminated.ogg",
-	"level_complete":     "res://assets/audio/sfx/level_complete.ogg",
-	"quiz_correct":       "res://assets/audio/sfx/quiz_correct.ogg",
-	"quiz_wrong":         "res://assets/audio/sfx/quiz_wrong.ogg",
-	"player_jump":        "res://assets/audio/sfx/player_jump.ogg",
-	"player_land":        "res://assets/audio/sfx/player_land.ogg",
-	"concept_hint_show":  "res://assets/audio/sfx/hint_show.ogg",
-	"ui_click":           "res://assets/audio/sfx/ui_click.ogg",
+	# UI & Menu
+	"ui_click":           "res://assets/audio/sfx/menu/click_001.ogg",
+	"ui_back":            "res://assets/audio/sfx/menu/back_001.ogg",
+	"ui_error":           "res://assets/audio/sfx/menu/error_001.ogg",
+	"ui_confirm":         "res://assets/audio/sfx/menu/confirmation_001.ogg",
+	"ui_open":            "res://assets/audio/sfx/menu/maximize_001.ogg",
+	"ui_close":           "res://assets/audio/sfx/menu/minimize_001.ogg",
+
+	# Mechanics
+	"button_press":       "res://assets/audio/sfx/menu/click_002.ogg",
+	"door_open":          "res://assets/audio/sfx/menu/open_004.ogg",
+	"door_locked":        "res://assets/audio/sfx/menu/error_001.ogg",
+	"variable_change":    "res://assets/audio/sfx/menu/select_001.ogg",
+	"function_execute":   "res://assets/audio/sfx/menu/confirmation_001.ogg",
+	"bug_eliminated":     "res://assets/audio/sfx/menu/glitch_001.ogg",
+	"level_complete":     "res://assets/audio/sfx/menu/confirmation_002.ogg",
+	"quiz_correct":       "res://assets/audio/sfx/menu/confirmation_001.ogg",
+	"quiz_wrong":         "res://assets/audio/sfx/menu/error_002.ogg",
+	"concept_hint_show":  "res://assets/audio/sfx/menu/maximize_002.ogg",
+
+	# Player
+	"player_jump":        "res://assets/audio/sfx/menu/maximize_001.ogg",
+	"player_land":        "res://assets/audio/sfx/menu/minimize_001.ogg",
 }
 
 # ---------------------------------------------------------------------------

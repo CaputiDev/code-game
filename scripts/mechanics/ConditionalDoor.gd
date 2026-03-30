@@ -54,9 +54,12 @@ enum LogicMode { AND, OR, XOR, SINGLE }
 # Node references
 # ---------------------------------------------------------------------------
 
-@onready var _sprite: Sprite2D = $Sprite2D
-@onready var _collision: CollisionShape2D = $CollisionShape2D
-@onready var _condition_label: Label = $ConditionLabel  # Shows "AND" / "OR"
+## Visual node — Polygon2D for prototype, Sprite2D when art is added.
+## Name it "Visual" in the scene.
+@onready var _visual: Node2D            = get_node_or_null("Visual")
+## Collision lives inside a child StaticBody2D named "DoorBody".
+@onready var _collision: CollisionShape2D = $DoorBody/CollisionShape2D
+@onready var _condition_label: Label    = $ConditionLabel  # Shows "AND" / "OR"
 
 # ---------------------------------------------------------------------------
 # Internal
@@ -125,13 +128,11 @@ func evaluate_condition() -> bool:
 	return false
 
 func on_activate() -> void:
-	# Door opens.
 	EventBus.play_sfx.emit("door_open")
 	EventBus.door_state_changed.emit(mechanic_id, true)
 	_animate_open()
 
 func on_deactivate() -> void:
-	# Door closes.
 	EventBus.door_state_changed.emit(mechanic_id, false)
 	_animate_close()
 
@@ -148,24 +149,23 @@ func _on_input_changed(_active: bool) -> void:
 
 func _animate_open() -> void:
 	_set_collision_enabled(false)
+	# Tint visual green while open.
+	if _visual is Polygon2D: (_visual as Polygon2D).color = Color(0.2, 0.8, 0.2, 1)
 	var tween := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	if slide_open:
 		tween.tween_property(self, "position",
 			_closed_position + slide_offset, animation_duration)
-	else:
-		tween.tween_property(_sprite, "modulate:a", 0.0, animation_duration)
-	if sprite_open and _sprite:
-		_sprite.texture = sprite_open
+	elif _visual:
+		tween.tween_property(_visual, "modulate:a", 0.0, animation_duration)
 
 func _animate_close() -> void:
+	if _visual is Polygon2D: (_visual as Polygon2D).color = Color(0.8, 0.2, 0.2, 1)
 	var tween := create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	if slide_open:
 		tween.tween_property(self, "position", _closed_position, animation_duration)
-	else:
-		tween.tween_property(_sprite, "modulate:a", 1.0, animation_duration)
+	elif _visual:
+		tween.tween_property(_visual, "modulate:a", 1.0, animation_duration)
 	tween.tween_callback(func(): _set_collision_enabled(true))
-	if sprite_closed and _sprite:
-		_sprite.texture = sprite_closed
 
 func _set_collision_enabled(enabled: bool) -> void:
 	if _collision:

@@ -111,8 +111,8 @@ func _go_to_next() -> void:
 	if next_level_path != "":
 		get_tree().change_scene_to_file("res://" + next_level_path)
 	else:
-		# Show level-complete screen, which will offer quiz or world select.
-		get_tree().change_scene_to_file("res://scenes/menus/LevelComplete.tscn")
+		# Show level-quiz screen, which will then flow to results.
+		get_tree().change_scene_to_file("res://scenes/menus/LevelQuiz.tscn")
 
 func _respawn_player() -> void:
 	# Signal any child nodes tagged with "player" to teleport to spawn.

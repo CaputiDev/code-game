@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg4btn001"]
+
+[ext_resource type="Script" path="res://scripts/mechanics/LogicButton.gd" id="1_btn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(32.0, 12.0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
+size = Vector2(40.0, 60.0)
+
+[node name="LogicButton" type="Node2D"]
+script = ExtResource("1_btn")
+mechanic_id = "button"
+mechanic_type = "logic_button"
+is_toggle = true
+
+[node name="Visual" type="Polygon2D" parent="."]
+color = Color(0.4, 0.4, 0.4, 1)
+polygon = PackedVector2Array(-16, -12, 16, -12, 16, 0, -16, 0)
+
+[node name="Label" type="Label" parent="."]
+position = Vector2(-12, -28)
+text = "OFF"
+theme_override_font_sizes/font_size = 12
+
+[node name="PulseTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="InteractionCollision" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_2")

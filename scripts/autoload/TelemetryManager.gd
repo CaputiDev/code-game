@@ -199,7 +199,13 @@ func _load_queue() -> void:
 		return
 	var json := JSON.new()
 	if json.parse(file.get_as_text()) == OK:
-		_queue = json.data.get("queue", [])
+		# JSON returns an untyped Array — must convert element-by-element
+		# because GDScript 4 cannot assign Array to Array[Dictionary] directly.
+		var raw: Array = json.data.get("queue", [])
+		_queue.clear()
+		for item in raw:
+			if item is Dictionary:
+				_queue.append(item)
 	file.close()
 	if debug_mode:
 		print("[TelemetryManager] Loaded %d queued events from disk." % _queue.size())

@@ -31,6 +31,9 @@ enum QuestionType { MULTIPLE_CHOICE, FILL_PSEUDOCODE }
 ## Format of the question.
 @export var type: QuestionType = QuestionType.MULTIPLE_CHOICE
 
+## Difficulty rating (1 = Easy, 5 = Hard).
+@export_range(1, 5) var difficulty: int = 1
+
 ## The question text (localization key or direct text).
 @export_multiline var question_text: String = ""
 

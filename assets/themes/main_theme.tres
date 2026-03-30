@@ -1,0 +1,97 @@
+[gd_resource type="Theme" format=3 uid="uid://cg4theme001"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_BtnNormal"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.18, 0.22, 0.3, 1)
+border_width_bottom = 4
+border_color = Color(0.12, 0.15, 0.2, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_BtnHover"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 12.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25, 0.3, 0.4, 1)
+border_width_bottom = 4
+border_color = Color(0.18, 0.22, 0.3, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_BtnPressed"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+bg_color = Color(0.14, 0.17, 0.24, 1)
+border_width_bottom = 0
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Panel"]
+bg_color = Color(0.1, 0.12, 0.16, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.25, 0.35, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 10
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Input"]
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 10.0
+content_margin_bottom = 6.0
+bg_color = Color(0.05, 0.06, 0.08, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.35, 0.5, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_Sep"]
+color = Color(0.3, 0.35, 0.5, 0.4)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_LabelTitle"]
+bg_color = Color(1, 1, 1, 0)
+
+[resource]
+Button/colors/font_color = Color(0.9, 0.94, 1, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_BtnNormal")
+Button/styles/focus = SubResource("StyleBoxFlat_BtnHover")
+Button/styles/hover = SubResource("StyleBoxFlat_BtnHover")
+Button/styles/normal = SubResource("StyleBoxFlat_BtnNormal")
+Button/styles/pressed = SubResource("StyleBoxFlat_BtnPressed")
+HSeparator/styles/separator = SubResource("StyleBoxLine_Sep")
+Label/colors/font_color = Color(0.9, 0.94, 1, 1)
+LineEdit/colors/font_color = Color(0.9, 0.9, 0.9, 1)
+LineEdit/styles/focus = SubResource("StyleBoxFlat_Input")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_Input")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_Panel")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_Input")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_BtnNormal")

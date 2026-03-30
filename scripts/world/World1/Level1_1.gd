@@ -21,7 +21,7 @@ extends BaseLevel
 @onready var _key: Area2D              = $Key
 @onready var _key_hint: Label          = $KeyHint
 @onready var _door_hint: Label         = $DoorHint
-@onready var _has_key_indicator: Label = $HUD/HasKeyIndicator
+@onready var _has_key_indicator: Label = $HasKeyIndicator
 @onready var _goal_area: Area2D        = $GoalArea
 
 # ---------------------------------------------------------------------------
@@ -38,6 +38,11 @@ func _on_level_ready() -> void:
 	world_index = 1
 	level_index = 0
 	concept     = "if"
+
+	# Register SpawnPoint so BaseLevel._respawn_player() can find it.
+	var spawn := get_node_or_null("SpawnPoint")
+	if spawn:
+		spawn.add_to_group("player_spawn")
 
 	_door.mechanic_id     = "door_l1_1"
 	_door.logic_mode      = ConditionalDoor.LogicMode.SINGLE

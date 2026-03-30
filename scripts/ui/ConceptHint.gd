@@ -47,7 +47,9 @@ func _ready() -> void:
 func show_hint(concept: String, pseudocode: String) -> void:
 	# Map concept key to translated title.
 	var title_key: String = "HINT_%s_TITLE" % concept.to_upper()
-	_concept_title.text = tr(title_key) if TranslationServer.has_message(title_key) else concept
+	var translated: String = tr(title_key)
+	# If tr() returns the key unchanged, there's no translation → use raw concept name.
+	_concept_title.text = translated if translated != title_key else concept
 
 	# Display pseudocode in monospace.
 	_pseudocode_label.text = "[code]%s[/code]" % pseudocode

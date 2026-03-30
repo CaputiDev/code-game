@@ -1,0 +1,177 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg4menu005"]
+
+[ext_resource type="Script" path="res://scripts/ui/WorldQuiz.gd" id="1_wq"]
+[ext_resource type="Script" path="res://scripts/quiz/QuizManager.gd" id="2_qm"]
+[ext_resource type="Theme" uid="uid://cg4theme001" path="res://assets/themes/main_theme.tres" id="3_theme"]
+
+[node name="WorldQuiz" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_theme")
+script = ExtResource("1_wq")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.06, 0.1, 1)
+
+[node name="QuizManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_qm")
+
+[node name="MainMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 40
+
+[node name="QuestionView" type="VBoxContainer" parent="MainMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Header" type="HBoxContainer" parent="MainMargin/QuestionView"]
+layout_mode = 2
+
+[node name="CounterLabel" type="Label" parent="MainMargin/QuestionView/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 18
+text = "Questão 1 de 3"
+
+[node name="QuestionBox" type="PanelContainer" parent="MainMargin/QuestionView"]
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MainMargin/QuestionView/QuestionBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="MainMargin/QuestionView/QuestionBox/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="QuestionLabel" type="RichTextLabel" parent="MainMargin/QuestionView/QuestionBox/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "O que acontece se a condição for verdadeira?"
+fit_content = true
+
+[node name="PseudocodeLabel" type="RichTextLabel" parent="MainMargin/QuestionView/QuestionBox/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0.8, 0.9, 1, 1)
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[code]se (tem_chave):
+    abrir_porta()[/code]"
+fit_content = true
+
+[node name="OptionsContainer" type="VBoxContainer" parent="MainMargin/QuestionView"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="FeedbackPanel" type="PanelContainer" parent="MainMargin/QuestionView"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MainMargin/QuestionView/FeedbackPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="MainMargin/QuestionView/FeedbackPanel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBox" type="HBoxContainer" parent="MainMargin/QuestionView/FeedbackPanel/Margin/VBox"]
+layout_mode = 2
+
+[node name="FeedbackIcon" type="Label" parent="MainMargin/QuestionView/FeedbackPanel/Margin/VBox/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "✅"
+
+[node name="FeedbackLabel" type="Label" parent="MainMargin/QuestionView/FeedbackPanel/Margin/VBox/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Correto!"
+
+[node name="ExplanationLabel" type="RichTextLabel" parent="MainMargin/QuestionView/FeedbackPanel/Margin/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Explicação detalhada aqui."
+fit_content = true
+
+[node name="NextButton" type="Button" parent="MainMargin/QuestionView/FeedbackPanel/Margin/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 44)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Continuar →"
+
+[node name="ResultView" type="CenterContainer" parent="MainMargin"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="MainMargin/ResultView"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Title" type="Label" parent="MainMargin/ResultView/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Quiz Finalizado!"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MainMargin/ResultView/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Você acertou X de Y questões."
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="MainMargin/ResultView/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ContinueButton" type="Button" parent="MainMargin/ResultView/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Continuar →"
+
+[node name="RetryButton" type="Button" parent="MainMargin/ResultView/VBox/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Tentar Novamente"

@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg4menu002"]
+
+[ext_resource type="Script" path="res://scripts/ui/MainMenu.gd" id="1_mainmenu"]
+[ext_resource type="Theme" uid="uid://cg4theme001" path="res://assets/themes/main_theme.tres" id="2_theme"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_mainmenu")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.08, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxMain" type="VBoxContainer" parent="CenterContainer/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Header" type="VBoxContainer" parent="CenterContainer/Panel/Margin/VBoxMain"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/Panel/Margin/VBoxMain/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "CodeGame"
+horizontal_alignment = 1
+
+[node name="GreetingLabel" type="Label" parent="CenterContainer/Panel/Margin/VBoxMain/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.8, 1, 1)
+text = "Olá, Jogador!"
+horizontal_alignment = 1
+
+[node name="Sep" type="HSeparator" parent="CenterContainer/Panel/Margin/VBoxMain"]
+layout_mode = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="CenterContainer/Panel/Margin/VBoxMain"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PlayButton" type="Button" parent="CenterContainer/Panel/Margin/VBoxMain/MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "JOGAR"
+
+[node name="WorldSelectButton" type="Button" parent="CenterContainer/Panel/Margin/VBoxMain/MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "SELECIONAR MUNDO"
+
+[node name="SettingsButton" type="Button" parent="CenterContainer/Panel/Margin/VBoxMain/MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "CONFIGURAÇÕES"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/Panel/Margin/VBoxMain/MenuButtons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "SAIR"

@@ -5,6 +5,9 @@
 extends Node
 
 const SAVE_PATH: String = "user://save_data.json"
+
+func _ready() -> void:
+	load_save()
 const SAVE_VERSION: int = 1
 
 # ---------------------------------------------------------------------------

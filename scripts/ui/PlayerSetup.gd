@@ -8,11 +8,11 @@ class_name PlayerSetup extends Control
 # Node references
 # ---------------------------------------------------------------------------
 
-@onready var _first_name_input: LineEdit = $Panel/VBox/FirstNameInput
-@onready var _last_name_input: LineEdit  = $Panel/VBox/LastNameInput
-@onready var _confirm_button: Button     = $Panel/VBox/ConfirmButton
-@onready var _error_label: Label         = $Panel/VBox/ErrorLabel
-@onready var _welcome_label: Label       = $Panel/VBox/WelcomeLabel
+@onready var _first_name_input: LineEdit = %FirstNameInput
+@onready var _last_name_input: LineEdit  = %LastNameInput
+@onready var _confirm_button: Button     = %ConfirmButton
+@onready var _error_label: Label         = %ErrorLabel
+@onready var _welcome_label: Label       = %WelcomeLabel
 
 # ---------------------------------------------------------------------------
 # Lifecycle
@@ -61,7 +61,7 @@ func _on_confirm_pressed() -> void:
 	var tween := create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.4)
 	tween.tween_callback(func():
-		get_tree().change_scene_to_file("res://scenes/menus/MainMenu.tscn")
+		get_tree().change_scene_to_file("res://scenes/menus/LevelAssessment.tscn")
 	)
 
 func _show_error(message: String) -> void:

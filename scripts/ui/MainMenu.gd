@@ -3,14 +3,19 @@
 ## and navigation options.
 extends Control
 
-@onready var _play_button: Button        = $Panel/VBox/PlayButton
-@onready var _world_select_button: Button = $Panel/VBox/WorldSelectButton
-@onready var _settings_button: Button    = $Panel/VBox/SettingsButton
-@onready var _quit_button: Button        = $Panel/VBox/QuitButton
-@onready var _greeting_label: Label      = $Panel/Header/GreetingLabel
-@onready var _title_label: Label         = $Panel/Header/TitleLabel
+@onready var _play_button: Button        = %PlayButton
+@onready var _world_select_button: Button = %WorldSelectButton
+@onready var _settings_button: Button    = %SettingsButton
+@onready var _quit_button: Button        = %QuitButton
+@onready var _greeting_label: Label      = %GreetingLabel
+@onready var _title_label: Label         = %TitleLabel
 
 func _ready() -> void:
+	# First-boot guard: redirect if player hasn't registered yet.
+	if GameState.player_first_name.is_empty():
+		get_tree().change_scene_to_file("res://scenes/menus/PlayerSetup.tscn")
+		return
+
 	EventBus.play_music.emit("main_menu")
 
 	_title_label.text    = "CodeGame"

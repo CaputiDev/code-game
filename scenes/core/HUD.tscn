@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg4hud001"]
+
+[ext_resource type="Script" path="res://scripts/ui/HUD.gd" id="1_hud"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_hud")
+
+[node name="HUDPanel" type="PanelContainer" parent="."]
+anchor_right = 1.0
+offset_bottom = 38.0
+
+[node name="HBox" type="HBoxContainer" parent="HUDPanel"]
+theme_override_constants/separation = 16
+
+[node name="WorldLabel" type="Label" parent="HUDPanel/HBox"]
+text = "W0"
+
+[node name="LevelLabel" type="Label" parent="HUDPanel/HBox"]
+text = "L1"
+
+[node name="AttemptLabel" type="Label" parent="HUDPanel/HBox"]
+text = "T:1"
+
+[node name="ConceptTag" type="Label" parent="HUDPanel/HBox"]
+text = "IF"
+modulate = Color(0.4, 1.0, 0.5, 1)
+
+[node name="PlayerLabel" type="Label" parent="HUDPanel/HBox"]
+size_flags_horizontal = 3
+horizontal_alignment = 2
+text = "Jogador"

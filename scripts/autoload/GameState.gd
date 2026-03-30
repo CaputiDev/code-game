@@ -37,6 +37,10 @@ var unlocked_levels: Dictionary = {}
 ## -1 means quiz not yet attempted.
 var quiz_scores: Dictionary = { 0: -1, 1: -1, 2: -1, 3: -1 }
 
+## Dict mapping "world_level" string keys to star count (0-3).
+## e.g. { "0_1": 3, "1_1": 0 }
+var star_counts: Dictionary = {}
+
 # ---------------------------------------------------------------------------
 # Current session / level
 # ---------------------------------------------------------------------------
@@ -124,6 +128,35 @@ func record_quiz_score(world: int, score: int) -> void:
 	# Unlock next world on first quiz completion
 	if score >= 0 and world == highest_unlocked_world:
 		highest_unlocked_world = mini(world + 1, 3)
+
+## Bulk unlocks content after the initial assessment.
+func unlock_content_by_assessment(passed_worlds: Array[int]) -> void:
+	# Always start at world 0.
+	highest_unlocked_world = 0
+	
+	if passed_worlds.is_empty():
+		unlocked_levels[0] = 0
+		return
+		
+	var max_passed: int = passed_worlds.max()
+	highest_unlocked_world = clampi(max_passed + 1, 0, 3)
+	
+	# Unlock all levels for worlds that were "passed".
+	# For simplicity, we assume each world has a fixed number of levels (e.g. 5).
+	# This avoids having to check every scene.
+	for w in range(highest_unlocked_world + 1):
+		unlocked_levels[w] = 5 # Mark as having reached level 5 (all unlocked)
+		# Initialize stars as 0 for all levels in unlocked worlds.
+		for l in range(6):
+			var key: String = "%d_%d" % [w, l]
+			if not star_counts.has(key):
+				star_counts[key] = 0
+
+## Updates star count for a specific level.
+func set_level_stars(world: int, level: int, stars: int) -> void:
+	var key: String = "%d_%d" % [world, level]
+	var current: int = star_counts.get(key, 0)
+	star_counts[key] = max(current, stars)
 
 # ---------------------------------------------------------------------------
 # Reset (for testing / new game)

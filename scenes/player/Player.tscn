@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg4player001"]
+
+[ext_resource type="Script" path="res://scripts/player/PlayerController.gd" id="1_player"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(28.0, 48.0)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_player")
+
+[node name="Visual" type="Polygon2D" parent="."]
+color = Color(0.204, 0.494, 0.957, 1)
+polygon = PackedVector2Array(-14, -48, 14, -48, 14, 0, -14, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 5.0
+limit_bottom = 1200

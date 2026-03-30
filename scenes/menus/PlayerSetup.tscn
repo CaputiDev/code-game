@@ -1,0 +1,97 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg4menu001"]
+
+[ext_resource type="Script" path="res://scripts/ui/PlayerSetup.gd" id="1_setup"]
+[ext_resource type="Theme" uid="uid://cg4theme001" path="res://assets/themes/main_theme.tres" id="2_theme"]
+
+[node name="PlayerSetup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_setup")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.06, 0.08, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="CenterContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Header" type="VBoxContainer" parent="CenterContainer/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="WelcomeLabel" type="Label" parent="CenterContainer/Panel/Margin/VBox/Header"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Bem-vindo!"
+horizontal_alignment = 1
+
+[node name="SubLabel" type="Label" parent="CenterContainer/Panel/Margin/VBox/Header"]
+layout_mode = 2
+modulate = Color(0.7, 0.8, 1, 1)
+text = "Por favor, identifique-se"
+horizontal_alignment = 1
+
+[node name="Sep" type="HSeparator" parent="CenterContainer/Panel/Margin/VBox"]
+layout_mode = 2
+
+[node name="Fields" type="VBoxContainer" parent="CenterContainer/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="FirstNameInput" type="LineEdit" parent="CenterContainer/Panel/Margin/VBox/Fields"]
+layout_mode = 2
+placeholder_text = "Nome"
+alignment = 1
+max_length = 32
+
+[node name="LastNameInput" type="LineEdit" parent="CenterContainer/Panel/Margin/VBox/Fields"]
+layout_mode = 2
+placeholder_text = "Sobrenome"
+alignment = 1
+max_length = 32
+
+[node name="Footer" type="VBoxContainer" parent="CenterContainer/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ConfirmButton" type="Button" parent="CenterContainer/Panel/Margin/VBox/Footer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Começar Jornada!"
+
+[node name="ErrorLabel" type="Label" parent="CenterContainer/Panel/Margin/VBox/Footer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.4, 0.4, 1)
+horizontal_alignment = 1
+autowrap_mode = 2

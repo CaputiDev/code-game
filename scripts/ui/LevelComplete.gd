@@ -8,13 +8,13 @@ class_name LevelComplete extends Control
 # Node references
 # ---------------------------------------------------------------------------
 
-@onready var _title_label: Label    = $Panel/VBox/TitleLabel
-@onready var _time_label: Label     = $Panel/VBox/Stats/TimeLabel
-@onready var _attempts_label: Label = $Panel/VBox/Stats/AttemptsLabel
-@onready var _stars_container: HBoxContainer = $Panel/VBox/StarsContainer
-@onready var _next_button: Button   = $Panel/VBox/Buttons/NextButton
-@onready var _retry_button: Button  = $Panel/VBox/Buttons/RetryButton
-@onready var _menu_button: Button   = $Panel/VBox/Buttons/MenuButton
+@onready var _title_label: Label    = %TitleLabel
+@onready var _time_label: Label     = %TimeLabel
+@onready var _attempts_label: Label = %AttemptsLabel
+@onready var _stars_container: HBoxContainer = %StarsContainer
+@onready var _next_button: Button   = %NextButton
+@onready var _retry_button: Button  = %RetryButton
+@onready var _menu_button: Button   = %MenuButton
 
 # ---------------------------------------------------------------------------
 # Internal (populated by store_result before scene change)
@@ -46,15 +46,13 @@ func _populate_ui() -> void:
 	_menu_button.text  = tr("LEVEL_COMPLETE_MENU")
 
 	var time_s: float = _last_result.get("time_seconds", 0.0)
-	var attempts: int = _last_result.get("attempts", 1)
+	var quiz_score: int = _last_result.get("quiz_score", 0)
+	var quiz_total: int = _last_result.get("quiz_total", 5)
+	var stars: int = _last_result.get("stars", 0)
 
 	_time_label.text     = tr("LEVEL_COMPLETE_TIME") % _format_time(time_s)
-	_attempts_label.text = tr("LEVEL_COMPLETE_ATTEMPTS") % attempts
+	_attempts_label.text = "Acertos no Quiz: %d/%d" % [quiz_score, quiz_total]
 
-	# Stars: 3 = ≤2 attempts, 2 = ≤4 attempts, 1 = any.
-	var stars: int = 1
-	if attempts <= 2: stars = 3
-	elif attempts <= 4: stars = 2
 	_display_stars(stars)
 
 	# If next level doesn't exist, hide next button.

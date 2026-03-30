@@ -35,8 +35,9 @@ class_name LogicButton extends BaseMechanic
 # Node references
 # ---------------------------------------------------------------------------
 
-@onready var _sprite: Sprite2D = $Sprite2D
-@onready var _label: Label = $Label          # Optional: shows "ON" / "OFF"
+## Visual node — Polygon2D for prototype, Sprite2D when art is added.
+@onready var _visual: Node2D  = get_node_or_null("Visual")
+@onready var _label: Label    = $Label
 @onready var _pulse_timer: Timer = $PulseTimer
 
 # ---------------------------------------------------------------------------
@@ -60,6 +61,19 @@ func _on_ready() -> void:
 		is_active = true
 
 	_pulse_timer.timeout.connect(_on_pulse_timeout)
+
+	# Auto-connect this button's InteractionArea to nearby players.
+	var area := get_node_or_null("InteractionArea") as Area2D
+	if area:
+		area.body_entered.connect(func(body: Node2D) -> void:
+			if body.has_method("set_nearby_interactable"):
+				body.set_nearby_interactable(self)
+		)
+		area.body_exited.connect(func(body: Node2D) -> void:
+			if body.has_method("clear_nearby_interactable"):
+				body.clear_nearby_interactable(self)
+		)
+
 	_update_visuals()
 
 # ---------------------------------------------------------------------------
@@ -107,15 +121,15 @@ func _on_pulse_timeout() -> void:
 # ---------------------------------------------------------------------------
 
 func _update_visuals() -> void:
-	if _sprite:
-		_sprite.texture = sprite_active if is_active else sprite_inactive
+	if _visual is Polygon2D:
+		(_visual as Polygon2D).color = Color(1.0, 0.9, 0.0, 1) if is_active else Color(0.4, 0.4, 0.4, 1)
 	if _label:
 		_label.text = "ON" if is_active else "OFF"
 
 func _animate_press() -> void:
-	if not _sprite:
+	if not _visual:
 		return
 	var tween := create_tween()
-	tween.tween_property(_sprite, "scale", Vector2(0.85, 0.85), 0.05)
-	tween.tween_property(_sprite, "scale", Vector2.ONE, 0.1) \
+	tween.tween_property(_visual, "scale", Vector2(0.85, 0.85), 0.05)
+	tween.tween_property(_visual, "scale", Vector2.ONE, 0.1) \
 		.set_trans(Tween.TRANS_SPRING)
