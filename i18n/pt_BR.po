@@ -1,0 +1,202 @@
+# CodeGame — Tradução Português (Brasil)
+# Locale: pt_BR
+# Encoding: UTF-8
+
+msgid ""
+msgstr ""
+"Language: pt_BR\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# ---- Main Menu ----
+msgid "MENU_PLAY"
+msgstr "Jogar"
+
+msgid "MENU_WORLD_SELECT"
+msgstr "Selecionar Mundo"
+
+msgid "MENU_SETTINGS"
+msgstr "Configurações"
+
+msgid "MENU_QUIT"
+msgstr "Sair"
+
+# ---- Player Setup ----
+msgid "SETUP_WELCOME"
+msgstr "Bem-vindo ao CodeGame!"
+
+msgid "SETUP_ENTER_NAME"
+msgstr "Como você se chama?"
+
+msgid "SETUP_FIRST_NAME_PLACEHOLDER"
+msgstr "Nome"
+
+msgid "SETUP_LAST_NAME_PLACEHOLDER"
+msgstr "Sobrenome"
+
+msgid "SETUP_CONFIRM"
+msgstr "Começar!"
+
+# ---- World Select ----
+msgid "WORLD_0_NAME"
+msgstr "Mundo 0 — Início"
+
+msgid "WORLD_0_DESC"
+msgstr "O que é um algoritmo? Aprenda a pensar como um computador."
+
+msgid "WORLD_1_NAME"
+msgstr "Mundo 1 — A Bifurcação"
+
+msgid "WORLD_1_DESC"
+msgstr "Aprenda sobre condições: Se isso acontecer, faça aquilo."
+
+msgid "WORLD_2_NAME"
+msgstr "Mundo 2 — O Armazém"
+
+msgid "WORLD_2_DESC"
+msgstr "Descubra como guardar e manipular informações com variáveis e funções."
+
+msgid "WORLD_3_NAME"
+msgstr "Mundo 3 — O Labirinto Infinito"
+
+msgid "WORLD_3_DESC"
+msgstr "Domine repetições e recursividade para resolver desafios complexos."
+
+msgid "WORLD_LOCKED"
+msgstr "🔒 Complete o mundo anterior para desbloquear."
+
+# ---- HUD ----
+msgid "HUD_WORLD"
+msgstr "Mundo"
+
+msgid "HUD_LEVEL"
+msgstr "Fase"
+
+msgid "HUD_ATTEMPTS"
+msgstr "Tentativas"
+
+msgid "HUD_CONCEPT"
+msgstr "Conceito"
+
+# ---- Level Complete ----
+msgid "LEVEL_COMPLETE_TITLE"
+msgstr "Fase Completa! 🎉"
+
+msgid "LEVEL_COMPLETE_TIME"
+msgstr "Tempo: %s"
+
+msgid "LEVEL_COMPLETE_ATTEMPTS"
+msgstr "Tentativas: %d"
+
+msgid "LEVEL_COMPLETE_NEXT"
+msgstr "Próxima Fase →"
+
+msgid "LEVEL_COMPLETE_RETRY"
+msgstr "Jogar Novamente"
+
+msgid "LEVEL_COMPLETE_MENU"
+msgstr "Menu Principal"
+
+# ---- Concept Hints ----
+msgid "HINT_IF_TITLE"
+msgstr "Estrutura SE"
+
+msgid "HINT_IF_DESC"
+msgstr "Uma condição que determina se uma ação será executada ou não."
+
+msgid "HINT_ELSE_TITLE"
+msgstr "Estrutura SENÃO"
+
+msgid "HINT_ELSE_DESC"
+msgstr "O que acontece quando a condição do SE é falsa."
+
+msgid "HINT_AND_TITLE"
+msgstr "Operador E (AND)"
+
+msgid "HINT_AND_DESC"
+msgstr "Ambas as condições precisam ser verdadeiras."
+
+msgid "HINT_OR_TITLE"
+msgstr "Operador OU (OR)"
+
+msgid "HINT_OR_DESC"
+msgstr "Basta uma das condições ser verdadeira."
+
+msgid "HINT_VARIABLE_TITLE"
+msgstr "Variável"
+
+msgid "HINT_VARIABLE_DESC"
+msgstr "Um espaço na memória para guardar um valor que pode mudar."
+
+msgid "HINT_FUNCTION_TITLE"
+msgstr "Função"
+
+msgid "HINT_FUNCTION_DESC"
+msgstr "Um conjunto de instruções com nome, que pode ser chamado várias vezes."
+
+msgid "HINT_LOOP_TITLE"
+msgstr "Laço de Repetição"
+
+msgid "HINT_LOOP_DESC"
+msgstr "Repete uma ação enquanto uma condição for verdadeira."
+
+msgid "HINT_RECURSION_TITLE"
+msgstr "Recursividade"
+
+msgid "HINT_RECURSION_DESC"
+msgstr "Uma função que chama a si mesma até uma condição de parada."
+
+# ---- Quiz ----
+msgid "QUIZ_TITLE"
+msgstr "Hora do Teste! 🧠"
+
+msgid "QUIZ_QUESTION_COUNTER"
+msgstr "Questão %d de %d"
+
+msgid "QUIZ_CORRECT"
+msgstr "✅ Correto!"
+
+msgid "QUIZ_WRONG"
+msgstr "❌ Incorreto. Veja a explicação abaixo."
+
+msgid "QUIZ_RESULT_TITLE"
+msgstr "Resultado"
+
+msgid "QUIZ_RESULT_SCORE"
+msgstr "Você acertou %d de %d questões."
+
+msgid "QUIZ_RETRY"
+msgstr "Tentar Novamente"
+
+msgid "QUIZ_CONTINUE"
+msgstr "Continuar →"
+
+# ---- Pause Menu ----
+msgid "PAUSE_TITLE"
+msgstr "Pausado"
+
+msgid "PAUSE_RESUME"
+msgstr "Continuar"
+
+msgid "PAUSE_RESTART"
+msgstr "Reiniciar Fase"
+
+msgid "PAUSE_QUIT_LEVEL"
+msgstr "Sair para o Menu"
+
+# ---- Bugs / Enemies ----
+msgid "BUG_HINT"
+msgstr "Um bug! Use a lógica para eliminá-lo."
+
+# ---- Settings ----
+msgid "SETTINGS_MUSIC_VOLUME"
+msgstr "Volume da Música"
+
+msgid "SETTINGS_SFX_VOLUME"
+msgstr "Volume dos Efeitos"
+
+msgid "SETTINGS_LANGUAGE"
+msgstr "Idioma"
+
+msgid "SETTINGS_CLOSE"
+msgstr "Fechar"

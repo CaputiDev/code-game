@@ -1,0 +1,202 @@
+# CodeGame — Translation Template
+# Generated: 2026-03-30
+# Default language: pt-BR
+# Encoding: UTF-8
+
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# ---- Main Menu ----
+msgid "MENU_PLAY"
+msgstr ""
+
+msgid "MENU_WORLD_SELECT"
+msgstr ""
+
+msgid "MENU_SETTINGS"
+msgstr ""
+
+msgid "MENU_QUIT"
+msgstr ""
+
+# ---- Player Setup ----
+msgid "SETUP_WELCOME"
+msgstr ""
+
+msgid "SETUP_ENTER_NAME"
+msgstr ""
+
+msgid "SETUP_FIRST_NAME_PLACEHOLDER"
+msgstr ""
+
+msgid "SETUP_LAST_NAME_PLACEHOLDER"
+msgstr ""
+
+msgid "SETUP_CONFIRM"
+msgstr ""
+
+# ---- World Select ----
+msgid "WORLD_0_NAME"
+msgstr ""
+
+msgid "WORLD_0_DESC"
+msgstr ""
+
+msgid "WORLD_1_NAME"
+msgstr ""
+
+msgid "WORLD_1_DESC"
+msgstr ""
+
+msgid "WORLD_2_NAME"
+msgstr ""
+
+msgid "WORLD_2_DESC"
+msgstr ""
+
+msgid "WORLD_3_NAME"
+msgstr ""
+
+msgid "WORLD_3_DESC"
+msgstr ""
+
+msgid "WORLD_LOCKED"
+msgstr ""
+
+# ---- HUD ----
+msgid "HUD_WORLD"
+msgstr ""
+
+msgid "HUD_LEVEL"
+msgstr ""
+
+msgid "HUD_ATTEMPTS"
+msgstr ""
+
+msgid "HUD_CONCEPT"
+msgstr ""
+
+# ---- Level Complete ----
+msgid "LEVEL_COMPLETE_TITLE"
+msgstr ""
+
+msgid "LEVEL_COMPLETE_TIME"
+msgstr ""
+
+msgid "LEVEL_COMPLETE_ATTEMPTS"
+msgstr ""
+
+msgid "LEVEL_COMPLETE_NEXT"
+msgstr ""
+
+msgid "LEVEL_COMPLETE_RETRY"
+msgstr ""
+
+msgid "LEVEL_COMPLETE_MENU"
+msgstr ""
+
+# ---- Concept Hints ----
+msgid "HINT_IF_TITLE"
+msgstr ""
+
+msgid "HINT_IF_DESC"
+msgstr ""
+
+msgid "HINT_ELSE_TITLE"
+msgstr ""
+
+msgid "HINT_ELSE_DESC"
+msgstr ""
+
+msgid "HINT_AND_TITLE"
+msgstr ""
+
+msgid "HINT_AND_DESC"
+msgstr ""
+
+msgid "HINT_OR_TITLE"
+msgstr ""
+
+msgid "HINT_OR_DESC"
+msgstr ""
+
+msgid "HINT_VARIABLE_TITLE"
+msgstr ""
+
+msgid "HINT_VARIABLE_DESC"
+msgstr ""
+
+msgid "HINT_FUNCTION_TITLE"
+msgstr ""
+
+msgid "HINT_FUNCTION_DESC"
+msgstr ""
+
+msgid "HINT_LOOP_TITLE"
+msgstr ""
+
+msgid "HINT_LOOP_DESC"
+msgstr ""
+
+msgid "HINT_RECURSION_TITLE"
+msgstr ""
+
+msgid "HINT_RECURSION_DESC"
+msgstr ""
+
+# ---- Quiz ----
+msgid "QUIZ_TITLE"
+msgstr ""
+
+msgid "QUIZ_QUESTION_COUNTER"
+msgstr ""
+
+msgid "QUIZ_CORRECT"
+msgstr ""
+
+msgid "QUIZ_WRONG"
+msgstr ""
+
+msgid "QUIZ_RESULT_TITLE"
+msgstr ""
+
+msgid "QUIZ_RESULT_SCORE"
+msgstr ""
+
+msgid "QUIZ_RETRY"
+msgstr ""
+
+msgid "QUIZ_CONTINUE"
+msgstr ""
+
+# ---- Pause Menu ----
+msgid "PAUSE_TITLE"
+msgstr ""
+
+msgid "PAUSE_RESUME"
+msgstr ""
+
+msgid "PAUSE_RESTART"
+msgstr ""
+
+msgid "PAUSE_QUIT_LEVEL"
+msgstr ""
+
+# ---- Bugs / Enemies ----
+msgid "BUG_HINT"
+msgstr ""
+
+# ---- Settings ----
+msgid "SETTINGS_MUSIC_VOLUME"
+msgstr ""
+
+msgid "SETTINGS_SFX_VOLUME"
+msgstr ""
+
+msgid "SETTINGS_LANGUAGE"
+msgstr ""
+
+msgid "SETTINGS_CLOSE"
+msgstr ""
