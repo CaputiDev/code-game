@@ -31,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="PanelContainer" parent="CenterContainer" unique_id=142017727]
-custom_minimum_size = Vector2(1080, 520)
+custom_minimum_size = Vector2(500, 400)
 layout_mode = 2
 
 [node name="Margin" type="MarginContainer" parent="CenterContainer/Panel" unique_id=1991916721]
@@ -55,14 +55,16 @@ horizontal_alignment = 1
 [node name="Sep" type="HSeparator" parent="CenterContainer/Panel/Margin/VBox" unique_id=644659857]
 layout_mode = 2
 
-[node name="WorldsContainer" type="GridContainer" parent="CenterContainer/Panel/Margin/VBox" unique_id=1044068965]
+[node name="Scroll" type="ScrollContainer" parent="CenterContainer/Panel/Margin/VBox" unique_id=712909518]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="WorldsContainer" type="VBoxContainer" parent="CenterContainer/Panel/Margin/VBox/Scroll" unique_id=1044068965]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-theme_override_constants/h_separation = 24
-theme_override_constants/v_separation = 24
-columns = 3
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
 
 [node name="BackButton" type="Button" parent="CenterContainer/Panel/Margin/VBox" unique_id=1374589661]
 unique_name_in_owner = true

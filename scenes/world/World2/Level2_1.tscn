@@ -1,4 +1,6 @@
-[ext_resource type="Script" uid="uid://cg4lvl011" path="res://scripts/world/World1/Level1_1.gd" id="1_lvl"]
+[gd_scene format=3 uid="uid://cg4lvl101"]
+
+[ext_resource type="Script" uid="uid://lynqx3o8obm4" path="res://scripts/world/World2/Level2_1.gd" id="1_lvl"]
 [ext_resource type="PackedScene" uid="uid://cg4player001" path="res://scenes/player/Player.tscn" id="2_player"]
 [ext_resource type="PackedScene" uid="uid://cg4door001" path="res://scenes/mechanics/ConditionalDoor.tscn" id="3_door"]
 [ext_resource type="PackedScene" uid="uid://cg4hud001" path="res://scenes/core/HUD.tscn" id="4_hud"]
@@ -21,10 +23,10 @@ size = Vector2(160, 24)
 [sub_resource type="RectangleShape2D" id="Shape_goal"]
 size = Vector2(40, 64)
 
-[node name="Level1_1" type="Node2D" unique_id=294624182]
+[node name="Level2_1" type="Node2D" unique_id=294624182]
 script = ExtResource("1_lvl")
-world_index = 1
-concept = "variable"
+world_index = 2
+concept = "if"
 
 [node name="HUD" parent="." unique_id=1502974189 instance=ExtResource("4_hud")]
 
@@ -90,16 +92,16 @@ polygon = PackedVector2Array(-80, -12, 80, -12, 80, 12, -80, 12)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=700928403]
 shape = SubResource("Shape_plat1")
 
-[node name="Collector" type="Area2D" parent="." unique_id=488319028]
+[node name="Key" type="Area2D" parent="." unique_id=488319028]
 position = Vector2(309, 196)
 collision_layer = 32
 collision_mask = 2
 
-[node name="Visual" type="Polygon2D" parent="Collector" unique_id=447114733]
+[node name="Visual" type="Polygon2D" parent="Key" unique_id=447114733]
 color = Color(1, 0.82, 0.16, 1)
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Collector" unique_id=1766836708]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=1766836708]
 shape = SubResource("Shape_key")
 
 [node name="Door" parent="." unique_id=540499370 instance=ExtResource("3_door")]
@@ -135,8 +137,7 @@ offset_bottom = 345.0
 text = "SE (tem_chave)
   porta.abrir()"
 
-[node name="VariableDisplay" type="Label" parent="." unique_id=787447044]
-unique_name_in_owner = true
+[node name="HasKeyIndicator" type="Label" parent="." unique_id=787447044]
 modulate = Color(1, 0.4, 0.4, 1)
 offset_left = 45.0
 offset_top = 98.0

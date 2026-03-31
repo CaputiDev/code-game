@@ -1,107 +1,46 @@
 ## Level1_1.gd
-## World 1, Level 1 — "A Primeira Condição"
+## Mundo 1, Fase 1 — "Sua Primeira Variável"
 ##
-## The player must collect a key, then interact with the door.
-## The door opens ONLY if (has_key == true).
+## O jogador vê um HUD exibindo o valor de uma variável.
+## Ao coletar o item, a variável 'ponto' aumenta de 0 para 1.
 ##
-## Pedagogical objective:
-##   Player experiences the simplest possible if statement:
-##   "IF you have the key, THEN the door opens."
-##
-## Telemetry tracks:
-##   - Whether the player tried the door without the key (common mistake).
-##   - How many attempts before understanding the condition.
+## Objetivo Pedagógico:
+##   Introduzir o conceito de variável como um "espaço de armazenamento"
+##   que pode mudar durante a execução do programa.
 extends BaseLevel
 
-# ---------------------------------------------------------------------------
-# Level nodes (assign in scene)
-# ---------------------------------------------------------------------------
+@onready var _variable_display: Label = %VariableDisplay
+@onready var _collector: Area2D        = $Collector
 
-@onready var _door: ConditionalDoor    = $Door
-@onready var _key: Area2D              = $Key
-@onready var _key_hint: Label          = $KeyHint
-@onready var _door_hint: Label         = $DoorHint
-@onready var _has_key_indicator: Label = $HasKeyIndicator
-@onready var _goal_area: Area2D        = $GoalArea
-
-# ---------------------------------------------------------------------------
-# Internal
-# ---------------------------------------------------------------------------
-
-var _has_key: bool = false
-
-# ---------------------------------------------------------------------------
-# Lifecycle
-# ---------------------------------------------------------------------------
+var _score: int = 0
 
 func _on_level_ready() -> void:
 	world_index = 1
 	level_index = 0
-	concept     = "if"
+	concept     = "variable"
+	
+	if _collector:
+		_collector.body_entered.connect(_on_collect)
+	
+	_update_ui()
 
-	# Register SpawnPoint so BaseLevel._respawn_player() can find it.
-	var spawn := get_node_or_null("SpawnPoint")
-	if spawn:
-		spawn.add_to_group("player_spawn")
-
-	_door.mechanic_id     = "door_l1_1"
-	_door.logic_mode      = ConditionalDoor.LogicMode.SINGLE
-	_door.hint_pseudocode = "se (tem_chave):\n    porta.abrir()"
-
-	# Wire a virtual single-input "button" driven by _has_key state.
-	# We use _door.force_activate() directly when key is collected.
-	_door.force_deactivate()
-
-	if _key:
-		_key.body_entered.connect(_on_key_collected)
-
-	if _goal_area:
-		_goal_area.body_entered.connect(_on_goal_reached)
-
-	_update_key_indicator()
-
-	# Show tutorial hints.
-	if _key_hint:
-		_key_hint.text = "Colete a chave para abrir a porta!"
-	if _door_hint:
-		_door_hint.text = "SE (tem_chave) → porta abre"
-
-# ---------------------------------------------------------------------------
-# Key collection
-# ---------------------------------------------------------------------------
-
-func _on_key_collected(body: Node) -> void:
-	if not body.is_in_group("player") or _has_key:
+func _on_collect(body: Node) -> void:
+	if not body.is_in_group("player") or _score > 0:
 		return
-
-	_has_key = true
+	
+	_score = 1
 	EventBus.play_sfx.emit("button_press")
-	GameState.record_decision("key_collected")
-
-	# The "if" condition is now true → open the door.
-	_door.force_activate()
-	_update_key_indicator()
-
-	if _key:
-		_key.queue_free()
-
-	if _key_hint:
-		_key_hint.text = "Você tem a chave! Agora vá até a porta."
-
-# ---------------------------------------------------------------------------
-# Goal reached
-# ---------------------------------------------------------------------------
-
-func _on_goal_reached(body: Node) -> void:
-	if not body.is_in_group("player"):
-		return
+	GameState.record_decision("variable_assigned")
+	
+	_update_ui()
+	
+	if _collector:
+		_collector.queue_free()
+	
+	# After seeing the change, level complete after short delay.
+	await get_tree().create_timer(1.0).timeout
 	complete_level()
 
-# ---------------------------------------------------------------------------
-# UI
-# ---------------------------------------------------------------------------
-
-func _update_key_indicator() -> void:
-	if _has_key_indicator:
-		_has_key_indicator.text = "tem_chave = %s" % ("Verdadeiro ✅" if _has_key else "Falso ❌")
-		_has_key_indicator.modulate = Color.GREEN if _has_key else Color.RED
+func _update_ui() -> void:
+	if _variable_display:
+		_variable_display.text = "Var pontos = %d" % _score

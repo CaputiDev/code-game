@@ -39,28 +39,40 @@ msgstr "Começar!"
 
 # ---- World Select ----
 msgid "WORLD_0_NAME"
-msgstr "Mundo 0 — Início"
+msgstr "Mundo 0 — Fundamentos"
 
 msgid "WORLD_0_DESC"
-msgstr "O que é um algoritmo? Aprenda a pensar como um computador."
+msgstr "O que é um algoritmo? Aprenda a pensar em passos lógicos e sequenciais."
 
 msgid "WORLD_1_NAME"
-msgstr "Mundo 1 — A Bifurcação"
+msgstr "Mundo 1 — Estruturas Básicas"
 
 msgid "WORLD_1_DESC"
-msgstr "Aprenda sobre condições: Se isso acontecer, faça aquilo."
+msgstr "Aprenda a manipular informações: Variáveis, tipos de dados e operadores lógicos e matemáticos."
 
 msgid "WORLD_2_NAME"
-msgstr "Mundo 2 — O Armazém"
+msgstr "Mundo 2 — Controle de Fluxo"
 
 msgid "WORLD_2_DESC"
-msgstr "Descubra como guardar e manipular informações com variáveis e funções."
+msgstr "Ensine o programa a tomar decisões com Condicionais (if/else) e Loops (Repetição)."
 
 msgid "WORLD_3_NAME"
-msgstr "Mundo 3 — O Labirinto Infinito"
+msgstr "Mundo 3 — Estruturas de Dados"
 
 msgid "WORLD_3_DESC"
-msgstr "Domine repetições e recursividade para resolver desafios complexos."
+msgstr "Organize informações complexas usando Arrays (Listas) e Objetos."
+
+msgid "WORLD_4_NAME"
+msgstr "Mundo 4 — Modularização"
+
+msgid "WORLD_4_DESC"
+msgstr "Crie código reutilizável com Funções e explore o poder da Recursividade."
+
+msgid "WORLD_5_NAME"
+msgstr "Mundo 5 — Desafios Práticos"
+
+msgid "WORLD_5_DESC"
+msgstr "Teste tudo o que aprendeu em puzzles que exigem a integração de múltiplos conceitos."
 
 msgid "WORLD_LOCKED"
 msgstr "🔒 Complete o mundo anterior para desbloquear."

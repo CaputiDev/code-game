@@ -3,7 +3,6 @@
 ## and navigation options.
 extends Control
 
-@onready var _play_button: Button        = %PlayButton
 @onready var _world_select_button: Button = %WorldSelectButton
 @onready var _settings_button: Button    = %SettingsButton
 @onready var _quit_button: Button        = %QuitButton
@@ -21,12 +20,10 @@ func _ready() -> void:
 	_title_label.text    = "CodeGame"
 	_greeting_label.text = "Olá, %s!" % GameState.player_display_name
 
-	_play_button.text         = tr("MENU_PLAY")
 	_world_select_button.text = tr("MENU_WORLD_SELECT")
 	_settings_button.text     = tr("MENU_SETTINGS")
 	_quit_button.text         = tr("MENU_QUIT")
 
-	_play_button.pressed.connect(_on_play_pressed)
 	_world_select_button.pressed.connect(_on_world_select_pressed)
 	_quit_button.pressed.connect(_on_quit_pressed)
 

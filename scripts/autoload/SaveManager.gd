@@ -95,7 +95,13 @@ func _deserialize(data: Dictionary) -> void:
 
 	var prog: Dictionary = data.get("progression", {})
 	GameState.highest_unlocked_world = prog.get("highest_unlocked_world", 0)
-	GameState.unlocked_levels        = prog.get("unlocked_levels", {})
+	
+	# Dictionary keys are ints but JSON deserializes them as strings.
+	var raw_levels: Dictionary = prog.get("unlocked_levels", {})
+	var unlocked_levels: Dictionary = {}
+	for k in raw_levels.keys():
+		unlocked_levels[int(k)] = raw_levels[k]
+	GameState.unlocked_levels = unlocked_levels
 
 	# quiz_scores keys are ints but JSON deserializes them as strings.
 	var raw_quiz: Dictionary = prog.get("quiz_scores", {})

@@ -35,7 +35,7 @@ var unlocked_levels: Dictionary = {}
 
 ## Dict mapping world index → quiz score.
 ## -1 means quiz not yet attempted.
-var quiz_scores: Dictionary = { 0: -1, 1: -1, 2: -1, 3: -1 }
+var quiz_scores: Dictionary = { 0: -1, 1: -1, 2: -1, 3: -1, 4: -1, 5: -1 }
 
 ## Dict mapping "world_level" string keys to star count (0-3).
 ## e.g. { "0_1": 3, "1_1": 0 }
@@ -127,7 +127,7 @@ func record_quiz_score(world: int, score: int) -> void:
 	quiz_scores[world] = score
 	# Unlock next world on first quiz completion
 	if score >= 0 and world == highest_unlocked_world:
-		highest_unlocked_world = mini(world + 1, 3)
+		highest_unlocked_world = mini(world + 1, 5)
 
 ## Bulk unlocks content after the initial assessment.
 func unlock_content_by_assessment(passed_worlds: Array[int]) -> void:
@@ -139,7 +139,7 @@ func unlock_content_by_assessment(passed_worlds: Array[int]) -> void:
 		return
 		
 	var max_passed: int = passed_worlds.max()
-	highest_unlocked_world = clampi(max_passed + 1, 0, 3)
+	highest_unlocked_world = clampi(max_passed + 1, 0, 5)
 	
 	# Unlock all levels for worlds that were "passed".
 	# For simplicity, we assume each world has a fixed number of levels (e.g. 5).
@@ -158,6 +158,25 @@ func set_level_stars(world: int, level: int, stars: int) -> void:
 	var current: int = star_counts.get(key, 0)
 	star_counts[key] = max(current, stars)
 
+## Returns an array of star counts for all levels in a world.
+func get_world_stars_list(world_idx: int) -> Array[int]:
+	var stars: Array[int] = []
+	for key in star_counts.keys():
+		if key.begins_with("%d_" % world_idx):
+			stars.append(star_counts[key])
+	return stars
+
+## Returns total stars earned vs total possible for a world.
+func get_world_star_stats(world_idx: int, levels_in_world: int = 5) -> Dictionary:
+	var list := get_world_stars_list(world_idx)
+	var earned := 0
+	for s in list:
+		earned += s
+	return {
+		"earned": earned,
+		"possible": levels_in_world * 3
+	}
+
 # ---------------------------------------------------------------------------
 # Reset (for testing / new game)
 # ---------------------------------------------------------------------------
@@ -165,6 +184,6 @@ func set_level_stars(world: int, level: int, stars: int) -> void:
 func reset_progress() -> void:
 	highest_unlocked_world = 0
 	unlocked_levels = {}
-	quiz_scores = { 0: -1, 1: -1, 2: -1, 3: -1 }
+	quiz_scores = { 0: -1, 1: -1, 2: -1, 3: -1, 4: -1, 5: -1 }
 	current_attempts = 0
 	current_decisions.clear()
