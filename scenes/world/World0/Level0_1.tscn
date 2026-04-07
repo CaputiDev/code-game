@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cg4lvl101"]
 
-[ext_resource type="Script" uid="uid://cg4lvl001" path="res://scripts/world/World0/Level0_1.gd" id="1_lvl"]
+[ext_resource type="Script" uid="uid://bqtow3do22ov2" path="res://scripts/world/World0/Level0_1.gd" id="1_lvl"]
 [ext_resource type="PackedScene" uid="uid://cg4player001" path="res://scenes/player/Player.tscn" id="2_player"]
 [ext_resource type="PackedScene" uid="uid://cg4door001" path="res://scenes/mechanics/ConditionalDoor.tscn" id="3_door"]
 [ext_resource type="PackedScene" uid="uid://cg4hud001" path="res://scenes/core/HUD.tscn" id="4_hud"]
@@ -25,7 +25,6 @@ size = Vector2(40, 64)
 
 [node name="Level0_1" type="Node2D" unique_id=294624182]
 script = ExtResource("1_lvl")
-world_index = 0
 concept = "if"
 
 [node name="HUD" parent="." unique_id=1502974189 instance=ExtResource("4_hud")]
