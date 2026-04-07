@@ -8,11 +8,14 @@ O diagrama abaixo ilustra o ciclo de vida do motor e como os sistemas assíncron
 
 ```mermaid
 graph TD
-    %% Estilização
-    classDef startEnd fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef process fill:#bbf,stroke:#333,stroke-width:1px;
-    classDef storage fill:#dfd,stroke:#333,stroke-width:1px;
-    classDef event fill:#fdd,stroke:#333,stroke-width:1px;
+    %% Configuração Global de Cores
+    %% (Força o texto geral e das setas para branco/claro)
+    %% Note: Dependendo do visualizador, 'color' nas classes é o mais eficaz.
+
+    classDef startEnd fill:#f9f,stroke:#333,stroke-width:2px,color:#fff;
+    classDef process fill:#4466ee,stroke:#333,stroke-width:1px,color:#fff;
+    classDef storage fill:#228822,stroke:#333,stroke-width:1px,color:#fff;
+    classDef event fill:#aa4444,stroke:#333,stroke-width:1px,color:#fff;
 
     subgraph Boot ["1. BOOT DA ENGINE"]
         A[Início do Jogo] --> B[Carregamento de Autoloads]
@@ -46,9 +49,9 @@ graph TD
         G & H --> I[LevelQuiz ou WorldSelect]
     end
 
-    %% Classes de Estilo
+    %% Aplicação das Classes
     class A,I startEnd;
-    class B,C,D,F process;
+    class B,C,D,F,S1,S2,S3 process;
     class B1,G storage;
     class E event;
 ```
