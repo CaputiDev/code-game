@@ -23,12 +23,15 @@ extends BaseLevel
 @onready var _door_hint: Label         = $DoorHint
 @onready var _has_key_indicator: Label = $HasKeyIndicator
 @onready var _goal_area: Area2D        = $GoalArea
+@onready var _sign_board: Area2D       = $SignBoard
+@onready var _door_approach: Area2D    = $DoorApproachArea
 
 # ---------------------------------------------------------------------------
 # Internal
 # ---------------------------------------------------------------------------
 
 var _has_key: bool = false
+var _recorded_door_attempt: bool = false
 
 # ---------------------------------------------------------------------------
 # Lifecycle
@@ -57,6 +60,13 @@ func _on_level_ready() -> void:
 
 	if _goal_area:
 		_goal_area.body_entered.connect(_on_goal_reached)
+
+	if _sign_board:
+		_sign_board.body_entered.connect(_on_sign_entered)
+		_sign_board.body_exited.connect(_on_sign_exited)
+
+	if _door_approach:
+		_door_approach.body_entered.connect(_on_door_approach_entered)
 
 	_update_key_indicator()
 
@@ -96,6 +106,33 @@ func _on_goal_reached(body: Node) -> void:
 	if not body.is_in_group("player"):
 		return
 	complete_level()
+
+# ---------------------------------------------------------------------------
+# Sign Board & Door Approach
+# ---------------------------------------------------------------------------
+
+func _on_sign_entered(body: Node) -> void:
+	if not body.is_in_group("player"):
+		return
+	var pseudo = "se (condição):\n    # Executa esta ação se for verdadeiro"
+	EventBus.show_concept_hint.emit("if", pseudo)
+
+func _on_sign_exited(body: Node) -> void:
+	if not body.is_in_group("player"):
+		return
+	EventBus.hide_concept_hint.emit()
+
+func _on_door_approach_entered(body: Node) -> void:
+	if not body.is_in_group("player") or _has_key or _recorded_door_attempt:
+		return
+	
+	_recorded_door_attempt = true
+	GameState.record_decision("tried_door_without_key")
+	
+	if _door_hint:
+		_door_hint.modulate = Color.RED
+		var tween := create_tween()
+		tween.tween_property(_door_hint, "modulate", Color(1, 0.6, 0.6), 1.0)
 
 # ---------------------------------------------------------------------------
 # UI

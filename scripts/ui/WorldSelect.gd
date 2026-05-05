@@ -62,6 +62,7 @@ func _ready() -> void:
 func _create_world_card(entry: Array) -> Control:
 	var world_idx: int = entry[2]
 	var unlocked: bool = world_idx <= GameState.highest_unlocked_world
+	var is_developed: bool = world_idx == 2
 	
 	var btn := Button.new()
 	btn.name = entry[0]
@@ -72,6 +73,10 @@ func _create_world_card(entry: Array) -> Control:
 		btn.disabled = true
 		btn.text = tr("WORLD_LOCKED")
 		return btn
+		
+	if not is_developed:
+		btn.disabled = true
+		btn.modulate = Color(0.5, 0.5, 0.5, 1.0)
 		
 	# Outer layout
 	var main_margin := MarginContainer.new()
@@ -96,6 +101,8 @@ func _create_world_card(entry: Array) -> Control:
 	# Middle: Description (Filling space)
 	var desc_label := Label.new()
 	desc_label.text = tr(entry[1])
+	if not is_developed:
+		desc_label.text = "Em desenvolvimento...\n\n" + desc_label.text
 	desc_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	desc_label.modulate = Color(0.7, 0.8, 1.0, 0.8)
 	desc_label.add_theme_font_size_override("font_size", 13)
@@ -128,19 +135,20 @@ func _create_world_card(entry: Array) -> Control:
 		quiz_label.add_theme_font_size_override("font_size", 12)
 		stats_hbox.add_child(quiz_label)
 	
-	btn.pressed.connect(func(): _on_world_selected(world_idx))
-	
-	# Hover effect
-	btn.mouse_entered.connect(func():
-		var tween := create_tween().set_parallel(true)
-		tween.tween_property(btn, "custom_minimum_size:y", 190.0, 0.2)
-		tween.tween_property(btn, "modulate", Color(1.2, 1.2, 1.3, 1.0), 0.2)
-	)
-	btn.mouse_exited.connect(func():
-		var tween := create_tween().set_parallel(true)
-		tween.tween_property(btn, "custom_minimum_size:y", 180.0, 0.2)
-		tween.tween_property(btn, "modulate", Color.WHITE, 0.2)
-	)
+	if is_developed:
+		btn.pressed.connect(func(): _on_world_selected(world_idx))
+		
+		# Hover effect
+		btn.mouse_entered.connect(func():
+			var tween := create_tween().set_parallel(true)
+			tween.tween_property(btn, "custom_minimum_size:y", 190.0, 0.2)
+			tween.tween_property(btn, "modulate", Color(1.2, 1.2, 1.3, 1.0), 0.2)
+		)
+		btn.mouse_exited.connect(func():
+			var tween := create_tween().set_parallel(true)
+			tween.tween_property(btn, "custom_minimum_size:y", 180.0, 0.2)
+			tween.tween_property(btn, "modulate", Color.WHITE, 0.2)
+		)
 	
 	return btn
 

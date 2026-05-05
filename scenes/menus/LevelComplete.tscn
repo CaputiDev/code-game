@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg4menu003"]
+[gd_scene format=3 uid="uid://cg4menu003"]
 
-[ext_resource type="Script" path="res://scripts/ui/LevelComplete.gd" id="1_lc"]
-[ext_resource type="Theme" uid="uid://cg4theme001" path="res://assets/themes/main_theme.tres" id="2_theme"]
+[ext_resource type="Script" uid="uid://c0p22rvm2wrm7" path="res://scripts/ui/LevelComplete.gd" id="1_lc"]
+[ext_resource type="Theme" uid="uid://d3rkc8l6vk8a6" path="res://assets/themes/main_theme.tres" id="2_theme"]
 
-[node name="LevelComplete" type="Control"]
+[node name="LevelComplete" type="Control" unique_id=1349476746]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_vertical = 2
 theme = ExtResource("2_theme")
 script = ExtResource("1_lc")
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="BG" type="ColorRect" parent="." unique_id=1929333450]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.02, 0.04, 0.02, 0.9)
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Center" type="CenterContainer" parent="." unique_id=309538941]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,75 +30,75 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="PanelContainer" parent="Center"]
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=1668208804]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 
-[node name="Margin" type="MarginContainer" parent="Center/Panel"]
+[node name="Margin" type="MarginContainer" parent="Center/Panel" unique_id=194498553]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VBox" type="VBoxContainer" parent="Center/Panel/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Center/Panel/Margin" unique_id=249849485]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="TitleLabel" type="Label" parent="Center/Panel/Margin/VBox"]
+[node name="TitleLabel" type="Label" parent="Center/Panel/Margin/VBox" unique_id=290623139]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Fase Completa!"
 horizontal_alignment = 1
 
-[node name="Sep" type="HSeparator" parent="Center/Panel/Margin/VBox"]
+[node name="Sep" type="HSeparator" parent="Center/Panel/Margin/VBox" unique_id=424739308]
 layout_mode = 2
 
-[node name="Stats" type="VBoxContainer" parent="Center/Panel/Margin/VBox"]
+[node name="Stats" type="VBoxContainer" parent="Center/Panel/Margin/VBox" unique_id=615032348]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="HBox" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Stats"]
+[node name="HBox" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Stats" unique_id=98448970]
 layout_mode = 2
 
-[node name="TimeLabel" type="Label" parent="Center/Panel/Margin/VBox/Stats/HBox"]
+[node name="TimeLabel" type="Label" parent="Center/Panel/Margin/VBox/Stats/HBox" unique_id=1660049915]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Tempo: --"
 
-[node name="AttemptsLabel" type="Label" parent="Center/Panel/Margin/VBox/Stats/HBox"]
+[node name="AttemptsLabel" type="Label" parent="Center/Panel/Margin/VBox/Stats/HBox" unique_id=519144512]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Tentativas: 1"
 horizontal_alignment = 2
 
-[node name="StarsContainer" type="HBoxContainer" parent="Center/Panel/Margin/VBox"]
+[node name="StarsContainer" type="HBoxContainer" parent="Center/Panel/Margin/VBox" unique_id=1829719503]
 unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Buttons" type="HBoxContainer" parent="Center/Panel/Margin/VBox"]
+[node name="Buttons" type="HBoxContainer" parent="Center/Panel/Margin/VBox" unique_id=2018719691]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="RetryButton" type="Button" parent="Center/Panel/Margin/VBox/Buttons"]
+[node name="RetryButton" type="Button" parent="Center/Panel/Margin/VBox/Buttons" unique_id=1941509822]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "REPETIR"
 
-[node name="NextButton" type="Button" parent="Center/Panel/Margin/VBox/Buttons"]
+[node name="NextButton" type="Button" parent="Center/Panel/Margin/VBox/Buttons" unique_id=2008358386]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "PRÓXIMA →"
 
-[node name="MenuButton" type="Button" parent="Center/Panel/Margin/VBox/Buttons"]
+[node name="MenuButton" type="Button" parent="Center/Panel/Margin/VBox/Buttons" unique_id=1114051246]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
